@@ -23,14 +23,11 @@ for name, value in options:
         except ValueError:
             raise Exception('Server port has to be an integer value')
 
+delay_req = True if 'delay' in args else False
+
 # Create an object of the above class
 server_handler = simple_server.MyHttpRequestHandler
 
 socketserver.TCPServer.allow_reuse_address = True
-with simple_server.MyTCPServer((server_ip, server_port), server_handler) as httpd:
+with simple_server.MyTCPServer((server_ip, server_port), server_handler, delay_request=delay_req) as httpd:
     httpd.serve_forever()
-
-# socketserver.TCPServer.allow_reuse_address = True
-# with socketserver.TCPServer((server_ip, server_port), server_handler) as httpd:
-#     httpd.serve_forever()
-
