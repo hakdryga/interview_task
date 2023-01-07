@@ -1,5 +1,5 @@
 *** Settings ***
-Resource  common_keywords.robot
+Resource  ./resources/common_keywords.robot
 Suite Setup  API Test Setup
 Suite Teardown  API Test Teardown
 
